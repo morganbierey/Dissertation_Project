@@ -1,0 +1,2 @@
+# Educational-tool-to-teach-programming-to-highschool-kids-
+coding is necessary although coding is not easy.Despite numerous resources online and schools providing some coding classes, most students have their 1st experience in coding when they start university. The project involves designing and developing an educational software application for primary/secondary school children to learn basic programming.
