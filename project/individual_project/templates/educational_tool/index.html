@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+
+    <head>
+        <title>Educational Tool</title>
+    </head>
+    <body>
+        <h1>Educatinal tool says...</h1>
+        <div>
+        time to learn! <br />
+        <strong>{{ boldmessage }}</strong><br />
+        </div>
+        <div>
+        <a href="/educational_tool/about/">About</a><br />
+        <img src="{% static 'images/superhero_vs.png' %}"
+        alt="Picture of vs code hero" /> <!-- New line -->
+        </div>
+    </body>
+
+</html>

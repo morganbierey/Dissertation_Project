@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+{% load staticfiles %} <!-- New line  added ex 4.2-->
+<html> <!--this file is very deletable created it 26/12/22 not sure if it works -->
+	<head>
+		<title>About</title>
+	</head>
+	<body>
+		<h1>Morgan says...</h1>
+		<div>
+			here is the about page. <br />
+			<strong>{{ boldmessage }}</strong><br />
+		</div>
+		<div>
+			<a href="/educational_tool">Index</a><br />
+			
+		</div>
+		<img src="{% static 'images/superhero_vs.png' %}"
+        alt="Picture of vs code hero" /> <!-- New line --><br />
+        </div>
+		</div>
+		<img src="{{ MEDIA_URL }}images/python.jpg"alt="Picture of python symbol."/>
+		</div>
+	</body>
+</html>
