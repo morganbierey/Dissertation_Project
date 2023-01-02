@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
+<<<<<<< HEAD
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage matches to {{ boldmessage }} in the template!
     context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
@@ -15,3 +16,6 @@ def about(request):
     # return HttpResponse("Educational coding app! THIS IS the abput page")
     context_dict = {'boldmessage': 'This tutorial has been put together by Morgan Bierey'}
     return render(request, 'educational_tool/about.html', context=context_dict)
+=======
+    return HttpResponse("Educational coding app!")
+>>>>>>> da5efec9b488fb10c2988553e0965ca90b006e08

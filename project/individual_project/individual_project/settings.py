@@ -14,10 +14,13 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+<<<<<<< HEAD
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
+=======
+>>>>>>> da5efec9b488fb10c2988553e0965ca90b006e08
 
 
 # Quick-start development settings - unsuitable for production
@@ -59,7 +62,11 @@ ROOT_URLCONF = 'individual_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [TEMPLATE_DIR,],
+=======
+        'DIRS': [],
+>>>>>>> da5efec9b488fb10c2988553e0965ca90b006e08
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,15 +74,21 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+<<<<<<< HEAD
                 'django.template.context_processors.media', 
+=======
+>>>>>>> da5efec9b488fb10c2988553e0965ca90b006e08
             ],
         },
     },
 ]
 
+<<<<<<< HEAD
 
 STATICFILES_DIRS = [STATIC_DIR, ]
 
+=======
+>>>>>>> da5efec9b488fb10c2988553e0965ca90b006e08
 WSGI_APPLICATION = 'individual_project.wsgi.application'
 
 
@@ -127,5 +140,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+=======
+>>>>>>> da5efec9b488fb10c2988553e0965ca90b006e08
