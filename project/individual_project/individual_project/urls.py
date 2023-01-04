@@ -17,27 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from educational_tool import views
-<<<<<<< HEAD
 from django.conf import settings
 from django.conf.urls.static import static
 
-=======
->>>>>>> da5efec9b488fb10c2988553e0965ca90b006e08
 
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('educational_tool/', include('educational_tool.urls')),
-<<<<<<< HEAD
     path('', views.index, name='about/'),
     # The above maps any URLs starting with educational_tool/ to be handled by educational_tool.
     path('admin/', admin.site.urls),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-=======
-    # The above maps any URLs starting with educational_tool/ to be handled by educational_tool.
-    path('admin/', admin.site.urls),
-    
-]
->>>>>>> da5efec9b488fb10c2988553e0965ca90b006e08
