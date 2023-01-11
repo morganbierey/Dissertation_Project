@@ -5,7 +5,7 @@
 <html>
 
     <head>
-        <title>Educational Tool</title>
+        <title>Educational_Tool</title>
     </head>
     <body>
         <h1>Educatinal tool says...</h1>
@@ -13,6 +13,25 @@
         time to learn! <br />
         <strong>{{ boldmessage }}</strong><br />
         </div>
+
+        <div>
+            {% if categories %}
+                <ul>
+                {% for category in categories %}
+                <li>
+                    <!-- The following line is changed to add an HTML hyperlink -->
+                    <a href="/educational_tool/category/{{ category.slug }}/">{{ category.name }}</a>
+                </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+             <strong>There are no categories present.</strong>
+            {% endif %}
+        </div>
+            
+
+
+
         <div>
         <a href="/educational_tool/about/">About</a><br />
         <img src="{% static 'images/superhero_vs.png' %}"
