@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from educational_tool.models import Category
 from educational_tool.models import Page
+import sys
+
 # Create your views here.
 def index(request):
   # Query the database for a list of ALL categories currently stored.
@@ -15,7 +17,37 @@ def index(request):
     context_dict['categories'] = category_list
     # Render the response and send it back!
     return render(request, 'educational_tool/index.html', context=context_dict)
-    
+
+def pycompiler(request):
+    # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
+    return render(request, 'educational_tool/pycompiler.html')  
+
+def runcode(request):
+  if request.method == "POST":
+    codeareadata = request.POST['codearea']
+    try:
+      #save original standard output reference
+
+      original_stdout = sys.stdout
+      sys.stdout = open('file.txt','w') # change standard ouput to the file we created
+
+      #execute code
+      exec(codeareadata) #example print("hello")
+
+      sys.stdout = original_stdout # reset original standard output to its orignial value 
+
+      # reads output from file and save in outut variable
+      output = open('file.txt','r').read()
+
+    except Exception as e:
+      #else return error
+      sys.stdout = original_stdout
+      output = e
+
+  #return rendered page and send output and codearea data to show on page
+  return render(request,'pycompiler.html',{"code":codeareadata, "output":output})
+
+
     
 def about(request):
     # return HttpResponse("Educational coding app! THIS IS the abput page")

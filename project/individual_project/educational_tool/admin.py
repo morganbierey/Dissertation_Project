@@ -1,5 +1,5 @@
 from django.contrib import admin
-from educational_tool.models import Category, Page
+from educational_tool.models import Category, Page, project, video, UserProfile, exercises, tutorials
 
 #second from.. added in ex5.6
 # Register your models here.
@@ -20,3 +20,10 @@ admin.site.register(Page,PageAdmin)
 
 # Update the registration to include this customised interface - 6.3
 admin.site.register(Category, CategoryAdmin)
+
+#models for excersises, projects and tutorials 
+admin.site.register(project)
+admin.site.register(video)
+admin.site.register(UserProfile)
+admin.site.register(exercises)
+admin.site.register(tutorials)

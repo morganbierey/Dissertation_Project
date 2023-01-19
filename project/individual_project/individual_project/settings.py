@@ -28,6 +28,7 @@ SECRET_KEY = '3@99=5-ld5+n@%%%+5c+%9#ur3@v3t@jhwx-+i%j*7ppaj8h#m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# APPEND_SLASH=False # added this because of error can remove later if need be 
 
 ALLOWED_HOSTS = []
 
