@@ -18,7 +18,7 @@
     <h1 style="text-align: center;">python compiler</h1>
     <h5 style="text-align: center;">execute your code here !</h5>
 
-    <form action="/runcode"" method="post"><!--"/educational_tool/runcode" or original = "/runcode"-->
+    <form action="{% url 'runcode' %}" method="post"><!--"/educational_tool/runcode" or original = "/runcode"-->
         {% csrf_token %}
         <div class="form-group" style="margin-left: 50px;margin-right: 50px;">
           <label for="codearea">Code Area</label>

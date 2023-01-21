@@ -29,7 +29,7 @@ urlpatterns = [
     # The above maps any URLs starting with educational_tool/ to be handled by educational_tool.
     path('admin/', admin.site.urls),
     # path('', views.index, name='pycompiler/'),
-    # path('runcode/', views.index, name='runcode/'),
+    path('runcode', views.runcode, name='runcode'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

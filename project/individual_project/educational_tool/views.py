@@ -45,7 +45,7 @@ def runcode(request):
       output = e
 
   #return rendered page and send output and codearea data to show on page
-  return render(request,'pycompiler.html',{"code":codeareadata, "output":output})
+  return render(request,'educational_tool/pycompiler.html',{"code":codeareadata, "output":output})
 
 
     
