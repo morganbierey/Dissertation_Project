@@ -7,6 +7,11 @@ virtual enviroment
 - using django django==2.1.5 = >  pip install django==2.1.5
 - using pillow latest version of pillow at the time "Pillow Version: 9.3.0"  = > python -m pip install --upgrade pillow
 
+
 activating virtual enviroment 
 cd [source]\Dissertation_Project\project
    => $ .\diss-env\Scripts\activate
+
+
+Install Django authentication system using the command 
+- pip install django[auth] => this is 
