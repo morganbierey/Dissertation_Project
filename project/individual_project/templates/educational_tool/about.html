@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 
 {% load staticfiles %} <!-- New line  added ex 4.2-->
+
 <html> <!--this file is very deletable created it 26/12/22 not sure if it works -->
 	<head>
 		<title>About</title>
+		<!-- css bootstrap link below -->
+		<link rel="stylesheet3" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+		<!-- Popper JS -->
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+		<!-- <link rel="stylesheet" href="newtest.scss"> -->
+		<link rel="stylesheet" type="text/css" href="{% static 'codejutsu/css/base.css' %}">
 	</head>
-	<body>
-		<h1>Morgan says...</h1>
+	<body><code>
+		<h1><code>About CodingJutsu</code></h1>
+		<div class="buttonlink">
+            <a class="btn btn-primary btncolour" href="/educational_tool" role="button">Return to HomePage</a>
+        </div>
 		<div>
 			here is the about page. <br />
 			<strong>{{ boldmessage }}</strong><br />
 		</div>
 		<div>
 			<a href="/educational_tool">Index</a><br />
+
 			
-		</div>
+		<!-- </div>
 		<img src="{% static 'images/superhero_vs.png' %}"
-        alt="Picture of vs code hero" /> <!-- New line --><br />
+        alt="Picture of vs code hero" /> <br />
         </div>
 		</div>
 		<img src="{{ MEDIA_URL }}images/python.jpg"alt="Picture of python symbol."/>
-		</div>
-	</body>
+		</div> -->
+
+		
+
+	</body></code>
 </html>
