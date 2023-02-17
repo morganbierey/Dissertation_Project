@@ -15,3 +15,7 @@ cd [source]\Dissertation_Project\project
 
 Install Django authentication system using the command 
 - pip install django[auth] => this is 
+
+
+Install Django embedd video using the command 
+-pip install django-embed-video
