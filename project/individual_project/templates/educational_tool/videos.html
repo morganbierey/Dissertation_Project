@@ -1,0 +1,38 @@
+{% extends 'educational_tool/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    CodeJutsu - watch video
+{% endblock %}
+
+{% block body_block %}
+    <h1>Videos page</h1>
+    <!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+    </iframe> -->
+    
+    <div id="iframe-container"></div> <!-- a container div to hold the iframe -->
+    
+    <script>
+        let iframeContainer = document.getElementById("iframe-container"); // select the container div
+        let iframe = document.createElement("iframe"); // create a new iframe element
+        var urlParams = new URLSearchParams(window.location.search);
+        var newVideoUrl = urlParams.get('new_video_url');
+
+        let string = newVideoUrl.toString();
+        
+        if (newVideoUrl) {
+            var video = document.getElementById("video");
+            video.src = string;
+            console.log(video.src)
+        }
+
+        
+        let url =  newVideoUrl;
+        iframe.src = url; // set the src attribute of the iframe to the URL string
+        iframeContainer.appendChild(iframe); // add the iframe as a child of the container div
+
+        
+     </script>
+  
+
+{% endblock %}

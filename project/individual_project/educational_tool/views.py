@@ -186,7 +186,16 @@ def user_login(request):
       # blank dictionary object...
     return render(request, 'educational_tool/login.html')
 
+def video(request):
+    # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
+    return render(request, 'educational_tool/videos.html')  
 
+def show_video(request, video_id):
+    video_url = f'https://www.youtube.com/embed/{video_id}'
+    return render(request, 'video.html', {'video_url': video_url})
 
+# def video_source(request):
+#     return request
 
+menu_items = {'Video 1': 'video_id_1', 'Video 2': 'video_id_2', 'Video 3': 'video_id_3'}
 

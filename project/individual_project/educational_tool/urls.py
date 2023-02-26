@@ -11,6 +11,8 @@ path('category/<slug:category_name_slug>/',views.show_category, name='show_categ
 path('pycompiler/', views.pycompiler, name='pycompiler'),
 path('register/', views.register, name='register'),
 path('login/', views.user_login, name='login'),
+path('videos/', views.video , name='videos'),
+ path('videos/<str:video_id>', views.show_video, name='show_video'),
 # path('runcode', views.runcode, name='runcode'),
 
 ]

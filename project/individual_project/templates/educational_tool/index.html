@@ -20,22 +20,19 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="newtest.scss"> -->
+    <link rel="stylesheet" href=".css">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'codejutsu/css/base.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'codejutsu/css/base.css' %}"> -->
 
-    <style>
-      li span {
-          color: #000000;
-          /* Text Color */
-      }
+
+
   </style>
         
     <title>CodingJutsu</title>
     </head>
-    <body><code>
+    <body>
 
-        <h1><code>CodingJutsu</code></h1>
+        <h1><CodingJutsu<</h1>
         <!-- <div>
         time to learn! <br />
         <strong>{{ boldmessage }}</strong><br />
@@ -95,8 +92,34 @@
         </div>
         
           <div class="buttonlink">
-            <a class="btn btn-primary btncolour" href="{% url 'educational_tool:register' %}"" role="button btncolour">SignUp</a>
+            <a class="btn btn-primary btncolour" href="{% url 'educational_tool:register' %}" role="button btncolour">SignUp</a>
           </div>
+
+          <div class="buttonlink">
+            <a class="btn btn-primary btncolour" href="{% url 'educational_tool:videos' %}?videoId=dQw4w9WgXcQ&new_video_url=https://www.youtube.com/embed/dQw4w9WgXcQ">Watch Video</a>
+            role="button btncolour">VIDEOS2</a>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Videos trial
+            <span class="caret"></span></button>
+            <select>
+              {% for name, video_id in menu_items.items %}
+                  <option value="{{ video_id }}">{{ name }}</option>
+              {% endfor %}
+          </select>
+          </div>
+
+          <div class="buttonlink">
+          <script>
+            function playVideo() {
+                var videoId = document.getElementById("menu").value;
+                var url = "https://www.example.com/videos/" + videoId;
+                window.location.href = url;
+            }
+            document.getElementById("menu").onchange = playVideo;
+        </script>
+        </div>
 
           
           <!-- <div>{% if user.is_authenticated %}
@@ -106,7 +129,7 @@
               {% endif %}
           </div> -->
           
-          <div class ="movedown moveleft"><h2>Why Learn to code?</h2></div><br>
+          <!-- <div class ="movedown moveleft"><h2>Why Learn to code?</h2></div><br> -->
         
           <!-- <blockquote>Coding is necessary for the future. Learning to code is becoming more important to a broader range of people, Online activities are often taken for granted and would not have been possible without people with coding skills.  However, coding is not easy. Despite numerous resources online and some schools providing some coding activities/classes, most of the time, students have their first experience in coding only when they start university.  The project requires involves the design and development of an educational software application for primary school and secondary children to learn basic programming.</blockquote> -->
         
@@ -136,5 +159,5 @@
         <!-- <img src="{% static 'images/superhero_vs.png' %}" 
          alt="Picture of vs code hero" />  -->
         </div>
-    </body></code>
+    </body>
 </html>
