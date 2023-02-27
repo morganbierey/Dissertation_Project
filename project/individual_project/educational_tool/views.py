@@ -27,6 +27,10 @@ def pycompiler(request):
     # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
     return render(request, 'educational_tool/pycompiler.html')  
 
+def new(request):
+    # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
+    return render(request, 'educational_tool/new.html') 
+
 def runcode(request):
   if request.method == "POST":
     codeareadata = request.POST['codearea']

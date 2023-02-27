@@ -12,5 +12,6 @@ path('pycompiler/', views.pycompiler, name='pycompiler'),
 path('register/', views.register, name='register'),
 path('login/', views.user_login, name='login'),
 # path('runcode', views.runcode, name='runcode'),
+path('new/', views.new, name='new'),
 
 ]
