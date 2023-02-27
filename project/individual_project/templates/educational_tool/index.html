@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-
 {% load staticfiles %}
-
 <html>
+<head>
+	<title>Navigation Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 
     <head>
         <link rel="stylesheet2" href="test.js">
@@ -20,121 +21,77 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="newtest.scss"> -->
+  <link rel="stylesheet" type="text/css" href="{% static 'codejutsu/css/style.css' %}">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'codejutsu/css/base.css' %}">
+</head>
+<body>
+	<header>
+        <title>CodingJutsu</title>
+        <h1>CodingJutsu</h1>
+	</header>
 
-    <style>
-      li span {
-          color: #000000;
-          /* Text Color */
-      }
-  </style>
-        
-    <title>CodingJutsu</title>
-    </head>
-    <body><code>
-
-        <h1><code>CodingJutsu</code></h1>
-        <!-- <div>
-        time to learn! <br />
-        <strong>{{ boldmessage }}</strong><br />
-        </div> -->
-
-        <!--start of new code  -->
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Categories
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#"><span>HTML</span></a></li>
-              <li><a href="#"><span>CSS</span></a></li>
-              <li><a href="#"><span>JavaScript</span></a></li>
-            </ul>
-          </div>
-        
-          <div class="buttonlink">
-            <a class="btn btn-primary btncolour" href="{% url 'educational_tool:about' %}" role="button">About</a>
-          </div>
-        
-          <div class="dropdown"> 
-            <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Tutorials
-            <span class="caret" ></span></button>
-            <ul class="dropdown-menu" >
-              <li><a href="#"><span>Tutorial 1</span></a></li>
-              <li><a href="#"><span> Tutorial 2</span></a></li>
-              <li><a href="#"><span>Tutorial 3</span></a></li>
-            </ul>
-          </div>
-        
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Excercises
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#"><span>Excercise 1</span></a></li>
-              <li><a href="#"><span>Excercise 2</span></a></li>
-              <li><a href="#"><span>Excercise 3</span></a></li>
-            </ul>
-          </div>
-        
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Videos
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#"><span>Video 1</span></a></li>
-              <li><a href="#"><span>Video 2</span></a></li>
-              <li><a href="#"><span>Video 3</span></a></li>
-            </ul>
-          </div>
-
-         <div class="buttonlink">
-            <a class="btn btn-primary btncolour" href="{% url 'educational_tool:pycompiler' %}" role="button btncolour">Testcode</a>
-         </div>
-
-         <div class="buttonlink">
-          <a class="btn btn-primary btncolour" href="{% url 'educational_tool:login' %}" role="button">Login</a>
-        </div>
-        
-          <div class="buttonlink">
-            <a class="btn btn-primary btncolour" href="{% url 'educational_tool:register' %}"" role="button btncolour">SignUp</a>
-          </div>
-
-          
-          <!-- <div>{% if user.is_authenticated %}
-                  Welcome {{ user.username }}!
-              {% else %}
-                  time to Learn!
-              {% endif %}
-          </div> -->
-          
-          <div class ="movedown moveleft"><h2>Why Learn to code?</h2></div><br>
-        
-          <!-- <blockquote>Coding is necessary for the future. Learning to code is becoming more important to a broader range of people, Online activities are often taken for granted and would not have been possible without people with coding skills.  However, coding is not easy. Despite numerous resources online and some schools providing some coding activities/classes, most of the time, students have their first experience in coding only when they start university.  The project requires involves the design and development of an educational software application for primary school and secondary children to learn basic programming.</blockquote> -->
-        
-
-        <!-- end of new code  -->
-        
-        
-
-        <div>
-            {% if categories %}
-                <ul>
-                {% for category in categories %}
-                <li>
-                    <!-- The following line is changed to add an HTML hyperlink -->
-                    <a href="/educational_tool/category/{{ category.slug }}/">{{ category.name }}</a>
-                </li>
-                {% endfor %}
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Categories
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span>HTML</span></a></li>
+                  <li><a href="#"><span>CSS</span></a></li>
+                  <li><a href="#"><span>JavaScript</span></a></li>
                 </ul>
-            {% else %}
-             <strong>There are no categories present.</strong>
-            {% endif %}
-        </div>
-        
-        <div>
-        <!--<a href="/educational_tool/about/">About</a><br />
-        <a href="/educational_tool/pycompiler/">Testcode</a><br /> -->
-        <!-- <img src="{% static 'images/superhero_vs.png' %}" 
-         alt="Picture of vs code hero" />  -->
-        </div>
-    </body></code>
+            </div>
+            <div class="buttonlink">
+                <a class="btn btn-primary btncolour" href="{% url 'educational_tool:about' %}" role="button">About</a>
+            </div>
+            <div class="dropdown"> 
+                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Tutorials
+                <span class="caret" ></span></button>
+                <ul class="dropdown-menu" >
+                  <li><a href="#"><span>Tutorial 1</span></a></li>
+                  <li><a href="#"><span> Tutorial 2</span></a></li>
+                  <li><a href="#"><span>Tutorial 3</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Excercises
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span>Excercise 1</span></a></li>
+                  <li><a href="#"><span>Excercise 2</span></a></li>
+                  <li><a href="#"><span>Excercise 3</span></a></li>
+                </ul>
+            </div>
+
+            <div class="buttonlink">
+                <a class="btn btn-primary btncolour" href="{% url 'educational_tool:pycompiler' %}" role="button btncolour">Testcode</a>
+            </div>
+
+            <div class="buttonlink">
+                <a class="btn btn-primary btncolour" href="{% url 'educational_tool:login' %}" role="button">Login</a>
+            </div>
+              
+            <div class="buttonlink">
+                  <a class="btn btn-primary btncolour" href="{% url 'educational_tool:register' %}" role="button btncolour">SignUp</a>
+            </div>
+
+			<!-- <li><a href="#">Dashboard 1</a></li>
+			<li><a href="#">Dashboard 2</a></li>
+			<li><a href="#">Dashboard 3</a></li>
+			<li><a href="#">Dashboard 4</a></li> -->
+		</ul>
+	</nav>
+
+	<main>
+		<!-- Add your content here -->
+	</main>
+
+	<footer>
+		<p>&copy; 2023 CodingJutsu  </p>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
 </html>
