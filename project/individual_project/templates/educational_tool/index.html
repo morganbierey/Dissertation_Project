@@ -53,6 +53,62 @@
                   <li><a href="#"><span>Tutorial 3</span></a></li>
                 </ul>
             </div>
+
+            <div class="dropdown"> 
+              <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Videos
+              <span class="caret" ></span></button>
+              <ul class="dropdown-menu" >
+                {% for vid in videos %}
+                  <!-- <li>{{ vid.title }}</li> -->
+                  <li><a href="/educational_tool/video/{{ vid.url }}/">{{ vid.title }}</a></li>
+                {% endfor %}
+                <!-- <li><a href="/video/Dv7gLpW91DM&list=PLcfakU00Qwfoso7mzGxuSLwVzrQCP6juI&index=3&ab_channel=BugraKilic"><span>Intro_video</span></a></li>
+                <li><a href="/video/Y8Tko2YC5hA&ab_channel=ProgrammingwithMosh"><span> what is python </span></a></li>
+                <li><a href="/video/AGnECmJFA9U&ab_channel=EngineerMan"><span>Syntax</span></a></li>
+                <li><a href="/video/0NO3MJkxm2g&ab_channel=RealPython"><span>comments</span></a></li>
+                <li><a href="/video/cQT33yu9pY8&ab_channel=ProgrammingwithMosh"><span>Variables</span></a></li>
+                <li><a href="/video/v=afJ2CuFbHKo&ab_channel=GeoDeltaLabs"><span>Data Types</span></a></li>
+                <li><a href="/video/yuxD8OlI7Rc&ab_channel=EngineerMan"><span>Numbers</span></a></li>
+                <li><a href="/video/Qtq83lAoogM&ab_channel=BroCode"><span>Type Casting</span></a></li>
+                <li><a href="/video/yuxD8OlI7Rc&ab_channel=EngineerMan"><span>Strings</span></a></li>
+                <li><a href="/video/"><span>Booleans</span></a></li>
+                <li><a href="/video/"><span>Operators</span></a></li>
+                <li><a href="/video/"><span>Lists</span></a></li>
+                <li><a href="/video/"><span>Tuples</span></a></li>
+                <li><a href="/video/"><span>Sets</span></a></li>
+                <li><a href="/video/"><span>Dictionaries</span></a></li>
+                <li><a href="/video/"><span>If/Else</span></a></li>
+                <li><a href="/video/"><span>While loops</span></a></li>
+                <li><a href="/video/"><span>For loops</span></a></li>
+                <li><a href="/video/"><span>Arrays</span></a></li>
+                <li><a href="/video/"><span>Scope</span></a></li> -->
+                
+              </ul>
+          </div>
+
+          <!-- <iframe id="embed-video"></iframe>
+
+          <script>
+            function openytlink(option) {
+              var link = option.link;
+              const params = new Proxy(new URLSearchParams(link), {
+                get: (searchParams, prop) => searchParams.get(prop),
+              });
+              let value = params.v;
+              document.getElementById('embed-video').src = 'https://www.youtube.com/embed/' + value + '?rel=0'
+            }
+          </script> -->
+          
+          <!-- <label>Videos</label>
+          <select id="comboA" onchange="openytlink(this)">
+            {% for vid in videos %}
+              <option link="{{ vid.link }}">{{ vid.name }}</option>
+            {% endfor %} -->
+            <!-- <option value="">Select combo</option>
+            <option value="Value1">Text1</option>
+            <option value="Value2">Text2</option>
+            <option value="Value3">Text3</option> -->
+          </select>
             
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Excercises
@@ -86,6 +142,17 @@
 	<main>
 		<!-- Add your content here -->
 	</main>
+
+  <div class="buttonlink">
+    <script>
+      function playVideo() {
+          var videoId = document.getElementById("menu").value;
+          var url = "https://www.example.com/videos/" + videoId;
+          window.location.href = url;
+      }
+      document.getElementById("menu").onchange = playVideo;
+  </script>
+  </div>
 
 	<footer>
 		<p>&copy; 2023 CodingJutsu  </p>

@@ -1,0 +1,18 @@
+{% extends 'educational_tool/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    {{ video.title }}
+{% endblock %}
+
+
+{% block body_block %}
+
+    <h1>CodeJutsu</h1>
+   
+    <!-- <iframe id="embed-video" src="https://www.youtube.com/embed/{{ v_id }}rel=0"></iframe> -->
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    
+{% endblock %}

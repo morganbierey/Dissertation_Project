@@ -68,11 +68,23 @@ class project(models.Model):
     project_summary = models.CharField(max_length=128, unique=True)
 
 class video(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    tittle = models.CharField(max_length=128, unique=True)
+    id = models.IntegerField(unique=True, primary_key=True)
+    title = models.CharField(max_length=128, unique=True)
     url = models.CharField(max_length=5000, unique=True)
-    UserProfile = models.ForeignKey(UserProfile, on_delete=models.CASCADE) # userprofile that uploaded the video - author
-    picture = picture = models.ImageField(upload_to=settings.MEDIA_ROOT, blank=True)
+    # picture = models.ImageField(upload_to=settings.MEDIA_ROOT, blank=True)
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    # UserProfile = models.ForeignKey(UserProfile, on_delete=models.CASCADE) # userprofile that uploaded the video - author
+
+    class Meta:
+        verbose_name_plural = 'videos'
+
+    def save(self, *args, **kwargs):
+        self.url = self.url
+        super(video, self).save(*args, **kwargs)
+
+
+    def __str__(self):
+        return self.title
 
 
 

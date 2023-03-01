@@ -14,6 +14,9 @@ class CategoryAdmin(admin.ModelAdmin):
 class PageAdmin(admin.ModelAdmin):
     list_display = ('title','category', 'url')
 
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('id','title', 'url')
+
 
 #below changed chapter 5 ex , added PageAdmin
 admin.site.register(Page,PageAdmin)
@@ -23,7 +26,7 @@ admin.site.register(Category, CategoryAdmin)
 
 #models for excersises, projects and tutorials 
 admin.site.register(project)
-admin.site.register(video)
+admin.site.register(video,VideoAdmin)
 admin.site.register(UserProfile)
 admin.site.register(exercises)
 admin.site.register(tutorials)
