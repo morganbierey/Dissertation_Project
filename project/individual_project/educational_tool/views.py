@@ -27,7 +27,11 @@ def index(request):
 
 def pycompiler(request):
     # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
-    return render(request, 'educational_tool/pycompiler.html')  
+    return render(request, 'educational_tool/pycompiler.html') 
+
+def compilerbase(request):
+    # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
+    return render(request, 'educational_tool/compilerbase.html')  
 
 def runcode(request):
   if request.method == "POST":
