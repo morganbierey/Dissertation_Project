@@ -17,44 +17,44 @@ def populate():
  video_pages = [
         {'id':'1','title': 'Intro to why you should code',
         'url':'Dv7gLpW91DM'},
-        {'id':'2','title':'what is python ',
+        {'id':'2','title':'What is python ',
         'url':'Y8Tko2YC5hA'},
         {'id':'3','title':'Syntax',
-         'url':'0NO3MJkxm2g'} 
-         {'id':'4','title':'comments',
-         'url':''}
+         'url':'0NO3MJkxm2g'} ,
+         {'id':'4','title':'Comments',
+         'url':''},
          {'id':'5','title':'Variables',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'6','title':'Data Types',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'7','title':'Numbers',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'8','title':'Type Casting',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'9','title':'Strings',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'10','title':'Booleans',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'Operators',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'Lists',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'Tuples',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'Sets',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'Dictionaries',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'If/ Else',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'While Loops',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'For Loops',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'Functions',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'Arrays',
-         'url':'0NO3MJkxm2g'}
+         'url':'0NO3MJkxm2g'},
          {'id':'3','title':'Scope',
          'url':'0NO3MJkxm2g'}]
 
