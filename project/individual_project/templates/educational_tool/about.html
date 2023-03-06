@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
-{% load staticfiles %} <!-- New line  added ex 4.2-->
+{% extends 'educational_tool/base.html' %}
+{% load staticfiles %}
 
 <html> <!--this file is very deletable created it 26/12/22 not sure if it works -->
 	<head>
-		<title>About</title>
 		<!-- css bootstrap link below -->
 		<link rel="stylesheet3" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<!-- Latest compiled and minified CSS -->
@@ -20,19 +19,40 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	
 		<!-- <link rel="stylesheet" href="newtest.scss"> -->
-		<link rel="stylesheet" type="text/css" href="{% static 'codejutsu/css/base.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'codejutsu/css/style.css' %}">
 	</head>
-	<body><code>
-		<h1><code>About CodingJutsu</code></h1>
-		<div class="buttonlink">
-            <a class="btn btn-primary btncolour" href="/educational_tool" role="button">Return to HomePage</a>
-        </div>
-		<div>
-			here is the about page. <br />
-			<strong>{{ boldmessage }}</strong><br />
-		</div>
-		<div>
-			<a href="/educational_tool">Index</a><br />
+	<body>
+
+		{% block header_block %}
+        <!-- Coding Jutsu - About -->
+		Coding Jutsu
+		{% endblock %}
+
+		{% block title_block %}
+			About
+		{% endblock %}
+
+		{% block heading_block %}
+			<!-- About CodingJutsu -->
+			About
+		{% endblock %}
+
+
+		
+		{% block body_block %}
+		<div style="text-align: center;">
+		here is the about page.    
+		</div> 
+		{% endblock %}
+
+		
+
+
+
+
+		
+		<!-- <div> -->
+			<!-- <a href="/educational_tool">Return to HomePage</a><br /> -->
 
 			
 		<!-- </div>
@@ -45,5 +65,5 @@
 
 		
 
-	</body></code>
+	</body>
 </html>
