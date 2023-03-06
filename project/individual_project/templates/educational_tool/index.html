@@ -61,28 +61,7 @@
                 {% for vid in videos %}
                   <!-- <li>{{ vid.title }}</li> -->
                   <li><a href="/educational_tool/video/{{ vid.url }}/">{{ vid.title }}</a></li>
-                {% endfor %}
-                <!-- <li><a href="/video/Dv7gLpW91DM&list=PLcfakU00Qwfoso7mzGxuSLwVzrQCP6juI&index=3&ab_channel=BugraKilic"><span>Intro_video</span></a></li>
-                <li><a href="/video/Y8Tko2YC5hA&ab_channel=ProgrammingwithMosh"><span> what is python </span></a></li>
-                <li><a href="/video/AGnECmJFA9U&ab_channel=EngineerMan"><span>Syntax</span></a></li>
-                <li><a href="/video/0NO3MJkxm2g&ab_channel=RealPython"><span>comments</span></a></li>
-                <li><a href="/video/cQT33yu9pY8&ab_channel=ProgrammingwithMosh"><span>Variables</span></a></li>
-                <li><a href="/video/v=afJ2CuFbHKo&ab_channel=GeoDeltaLabs"><span>Data Types</span></a></li>
-                <li><a href="/video/yuxD8OlI7Rc&ab_channel=EngineerMan"><span>Numbers</span></a></li>
-                <li><a href="/video/Qtq83lAoogM&ab_channel=BroCode"><span>Type Casting</span></a></li>
-                <li><a href="/video/yuxD8OlI7Rc&ab_channel=EngineerMan"><span>Strings</span></a></li>
-                <li><a href="/video/"><span>Booleans</span></a></li>
-                <li><a href="/video/"><span>Operators</span></a></li>
-                <li><a href="/video/"><span>Lists</span></a></li>
-                <li><a href="/video/"><span>Tuples</span></a></li>
-                <li><a href="/video/"><span>Sets</span></a></li>
-                <li><a href="/video/"><span>Dictionaries</span></a></li>
-                <li><a href="/video/"><span>If/Else</span></a></li>
-                <li><a href="/video/"><span>While loops</span></a></li>
-                <li><a href="/video/"><span>For loops</span></a></li>
-                <li><a href="/video/"><span>Arrays</span></a></li>
-                <li><a href="/video/"><span>Scope</span></a></li> -->
-                
+                {% endfor %}                
               </ul>
           </div>
 
@@ -114,10 +93,11 @@
                 <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Excercises
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><a href="{% url 'educational_tool:compilerbase' %}"><span>Excercise 1</span></a></li>
-                  <li><a href="#"><span>Excercise 2</span></a></li>
-                  <li><a href="#"><span>Excercise 3</span></a></li>
-                </ul>
+                  {% for ex in excercises %}
+                  <li><a href="/educational_tool/compilerbase/{{ ex.id }}/">{{ ex.title }}</a></li>
+                  {% endfor %}                
+              </ul>
+                
             </div>
 
             <div class="buttonlink">
@@ -131,6 +111,7 @@
             <div class="buttonlink">
                   <a class="btn btn-primary btncolour" href="{% url 'educational_tool:register' %}" role="button btncolour">SignUp</a>
             </div>
+          </ul>
 
 			<!-- <li><a href="#">Dashboard 1</a></li>
 			<li><a href="#">Dashboard 2</a></li>
@@ -151,6 +132,14 @@
         <a href="{% url 'educational_tool:register' %}" class="cta-button">Start Learning</a>
       </div>
     </div>
+    
+    <br>
+
+    <div style="display: flex; justify-content: center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Dv7gLpW91DM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+
 	</main>
 
   <div class="buttonlink">
