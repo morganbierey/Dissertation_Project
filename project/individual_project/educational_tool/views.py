@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from educational_tool.models import Category
 from educational_tool.models import Page
 from educational_tool.models import video
+from educational_tool.models import exercise
 from educational_tool.forms import UserForm, UserProfileForm
 import sys
 from django.contrib.auth import authenticate, login
@@ -22,6 +23,7 @@ def index(request):
     context_dict['boldmessage'] = 'Why Learn Code?'
     context_dict['categories'] = category_list
     context_dict['videos'] = video.objects.all()
+    context_dict['excercises'] = exercise.objects.all()
     # Render the response and send it back!
     return render(request, 'educational_tool/index.html', context=context_dict)
 
@@ -29,9 +31,13 @@ def pycompiler(request):
     # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
     return render(request, 'educational_tool/pycompiler.html') 
 
-def compilerbase(request):
+def compilerbase(request,p_id):
     # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
-    return render(request, 'educational_tool/compilerbase.html')  
+    context_dict = {}
+    context_dict['exercise'] = exercise.objects.get(id=p_id)
+
+
+    return render(request, 'educational_tool/compilerbase.html', context=context_dict)  
 
 def runcode(request):
   if request.method == "POST":

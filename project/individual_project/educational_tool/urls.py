@@ -12,7 +12,7 @@ path('pycompiler/', views.pycompiler, name='pycompiler'),
 path('register/', views.register, name='register'),
 path('login/', views.user_login, name='login'),
 path('video/<v_id>/',views.show_video, name='show_video'),
-path('compilerbase/', views.compilerbase, name='compilerbase'),
+path('compilerbase/<p_id>/', views.compilerbase, name='compilerbase'),
 
 
 # path('runcode', views.runcode, name='runcode'),

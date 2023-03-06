@@ -32,11 +32,13 @@ class Page(models.Model):
     def __str__(self):
         return self.title
 
-class exercises(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    title = models.CharField(max_length=128)
-    status = models.BooleanField(default=False)
-    difficulty = models.CharField(max_length=128, unique=True)
+class exercise(models.Model):
+    id = models.IntegerField(unique=True, primary_key=True)
+    title = models.CharField(max_length=128, unique=True)
+    problem = models.CharField(max_length=5000, unique=True)
+
+    class Meta:
+        verbose_name_plural = 'exercises'
 
 class tutorials(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
