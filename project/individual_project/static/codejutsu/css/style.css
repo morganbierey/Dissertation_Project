@@ -47,10 +47,17 @@ nav a:hover {
 main {
 	padding: 20px;
 	flex: 1;
+	margin-left: 5%;
+	margin-right: 5%;
 
 }
 
 footer {
+
+	/* position: fixed; */
+	width: 100%;
+	left: 0;
+	bottom: 0;
 	background-color: #333;
 	color: #fff;
 	padding: 20px;
@@ -90,3 +97,9 @@ footer {
 	text-align: center;
 	
   }
+
+.custom-body-block{
+	margin-left: 5%;
+	margin-right: 5%;
+	text-align: center;
+}
