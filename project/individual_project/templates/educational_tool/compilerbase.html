@@ -57,6 +57,17 @@
 
     <li><a href="{% url 'educational_tool:index' %}">Home</a></li>
 
+    <div class="form-group" style="margin-left: 50px; margin-right: 50px">
+    <textarea
+            type="text"
+            class="form-control"
+            id="exercise"
+            name="exercise"
+            rows="6"
+            disabled
+        >{{ exercises.problem }}</textarea>
+      </div>
+
   
 
     <form action="{% url 'runcode' %}" method="post">
@@ -69,16 +80,7 @@
 
             You may assume the two numbers do not contain any leading zero, except the number 0 itself. </small> -->
 
-        <textarea
-          type="text"
-          class="form-control"
-          id="excercise"
-          name="excercise"
-          rows="6"
-          disabled
-        >
-        {{ excercises.title }}
-      </textarea>
+        
      
 
         <!-- enter excercise comments  -->
