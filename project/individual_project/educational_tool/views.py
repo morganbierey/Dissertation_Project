@@ -4,6 +4,7 @@ from educational_tool.models import Category
 from educational_tool.models import Page
 from educational_tool.models import video
 from educational_tool.models import exercise
+from educational_tool.models import topic
 from educational_tool.forms import UserForm, UserProfileForm
 import sys
 from django.contrib.auth import authenticate, login
@@ -24,6 +25,8 @@ def index(request):
     context_dict['categories'] = category_list
     context_dict['videos'] = video.objects.all()
     context_dict['excercises'] = exercise.objects.all()
+    context_dict['topics'] = topic.objects.all()
+
     # Render the response and send it back!
     return render(request, 'educational_tool/index.html', context=context_dict)
 
@@ -34,7 +37,9 @@ def pycompiler(request):
 def compilerbase(request,p_id):
     # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
     context_dict = {}
-    context_dict['exercise'] = exercise.objects.get(id=p_id)
+    context_dict['exercises'] = exercise.objects.filter(id=p_id).values().first()
+
+    print(context_dict)
 
 
     return render(request, 'educational_tool/compilerbase.html', context=context_dict)  
@@ -71,6 +76,11 @@ def about(request):
     context_dict = {'boldmessage': 'This tutorial has been put together by Morgan Bierey'}
     return render(request, 'educational_tool/about.html', context=context_dict)
 
+def tutorial(request):
+    
+    return render(request, 'educational_tool/tutorial.html')
+
+
 def show_category(request, category_name_slug):
   # Create a context dictionary which we can pass
   # to the template rendering engine.
@@ -99,33 +109,16 @@ def show_category(request, category_name_slug):
   return render(request, 'educational_tool/category.html', context=context_dict)
 
 def show_video(request, v_id):
-  # Create a context dictionary which we can pass
-  # to the template rendering engine.
   context_dict = {}
-  # try:
-    # Can we find a category name slug with the given name?
-    # If we can't, the .get() method raises a DoesNotExist exception.
-    # The .get() method returns one model instance or raises an exception.
-    # videos = video.objects.get(slug=v_id)
-    # # Retrieve all of the associated pages.
-    # # The filter() will return a list of page objects or an empty list.
-    # pages = Page.objects.filter(category=category)
-    # Adds our results list to the template context under name pages.
-  #context_dict['v_id'] = video.objects.get(url=v_id)
-  #context_dict['v_id'] = v_id
   context_dict['video'] = video.objects.get(url=v_id)
-    # We also add the category object from
-    # the database to the context dictionary.
-    # We'll use this in the template to verify that the category exists.
-  #   context_dict['category'] = category
-  # except Category.DoesNotExist:
-  #   # We get here if we didn't find the specified category.
-  #   # Don't do anything -
-  #   # the template will display the "no category" message for us.
-  #   context_dict['category'] = None
-  #   context_dict['pages'] = None
-    # Go render the response and return it to the client.
+    
   return render(request, 'educational_tool/video.html', context=context_dict)
+
+def show_topic(request, t_id):
+    
+    context_dict = {}
+    context_dict['topics'] = topic.objects.get(id=t_id)
+    return render(request, 'educational_tool/topic.html', context=context_dict)
 
 
 def register(request):
