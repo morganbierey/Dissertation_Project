@@ -4,7 +4,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 
 import django
 django.setup()
-from educational_tool.models import Category, Page, video, exercise
+from educational_tool.models import Category, Page, video, exercise , topic
 
 def populate():
      # First, we will create lists of dictionaries containing the pages
@@ -12,6 +12,28 @@ def populate():
      # # Then we will create a dictionary of dictionaries for our categories.
      # # This might seem a little bit confusing, but it allows us to iterate
      # # through each data structure, and add the data to our models.
+
+
+        # tutorial_pages = [
+        # {'id':'1','title': 'Tutorial 1',
+        # 'url':'Dv7gLpW91DM'},
+        # {'id':'2','title':'Tutorial 2 ',
+        # 'url':'Y8Tko2YC5hA'},
+        # {'id':'3','title':'Tutorial 3',
+        #  'url':'0NO3MJkxm2g'}]
+
+        topic_pages = [
+        {'id':'1','title': ' Loops',
+        'content':'In programming, a loop is a way to repeat a set of instructions multiple times. There are two main types of loops in Python: for loops and while loops.'},
+        {'id':'2','title':'Lists ',
+        'content':'Y8Tko2YC5hA'},
+        {'id':'3','title':'Syntax',
+         'content':'0NO3MJkxm2g'}]
+
+
+
+
+
 
 
         video_pages = [
@@ -151,6 +173,12 @@ def populate():
                title = ex_dict.get('title')
                problem = ex_dict.get('problem')
                p = add_excercise(id,title,problem)
+        
+        for topic in topic_pages:
+               id = topic.get('id')
+               title = topic.get('title')
+               content = topic.get('content')
+               p = add_top(id,title,content)
 
 
 def add_page(cat, title, url, views=0):
@@ -176,6 +204,12 @@ def add_excercise(id,title, problem):
      p = exercise.objects.get_or_create(id=id,title=title,problem=problem)[0]
      p.save()
      return p
+
+def add_top(id,title, content):
+       t  = topic.objects.get_or_create(id=id,title=title,content=content)[0]
+       t.save()
+       return t
+
 
 
 # Start execution here!

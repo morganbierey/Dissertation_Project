@@ -1,0 +1,17 @@
+{% extends 'educational_tool/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Current Topic
+{% endblock %}
+
+
+{% block heading_block %}
+{{ topics.title }} 
+{% endblock %}
+
+{% block body_block %}
+		<div style="text-align: center;">
+		{{ topics.content }}  
+		</div> 
+{% endblock %}
