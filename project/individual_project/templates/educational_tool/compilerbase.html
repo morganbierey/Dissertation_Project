@@ -33,7 +33,11 @@
       crossorigin="anonymous"
     ></script>
 
-    <title>{% block title_block %} {% endblock %}</title>
+    <title>
+      {% block title_block %} 
+      {{ excercises.title}}
+      {% endblock %}
+    </title>
 
     <!-- <div class="custom-header-block">
 		{% block header_block %}
@@ -42,11 +46,18 @@
 </div> -->
   </head>
   <body style="font-family: Verdana">
+
+    <!-- {% block heading_block %}
+    {{ excercises.title }}
+    {% endblock %} -->
+
     <br />
     <h1 style="text-align: center">python compiler</h1>
     <h5 style="text-align: center">execute your code here !</h5>
 
     <li><a href="{% url 'educational_tool:index' %}">Home</a></li>
+
+  
 
     <form action="{% url 'runcode' %}" method="post">
       <!--"/educational_tool/runcode" or original = "/runcode"-->
@@ -66,8 +77,9 @@
           rows="6"
           disabled
         >
-        {{ excercise.problem }}
+        {{ excercises.title }}
       </textarea>
+     
 
         <!-- enter excercise comments  -->
         <label for="codearea">Code Area</label>

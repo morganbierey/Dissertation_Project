@@ -2,11 +2,10 @@
 {% load staticfiles %}
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="style.css">
 
-    <link rel="stylesheet2" href="test.js">
-    <!-- css bootstrap link below -->
-    <link rel="stylesheet3" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet2" href="test.js"> -->
+    
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -33,12 +32,16 @@
 		<ul>
 			<li><a href="/educational_tool">Home</a></li>
             <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Categories
+                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown"> Topics
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><span>HTML</span></a></li>
+                  {% for t in topics %}
+                  <!-- <li>{{ vid.title }}</li> -->
+                  <li><a href="/educational_tool/topic/{{ t.id }}/">{{ t.title }}</a></li>
+                  {% endfor %} 
+                  <!-- <li><a href="#"><span>HTML</span></a></li>
                   <li><a href="#"><span>CSS</span></a></li>
-                  <li><a href="#"><span>JavaScript</span></a></li>
+                  <li><a href="#"><span>JavaScript</span></a></li> -->
                 </ul>
             </div>
             <div class="buttonlink">
@@ -48,7 +51,7 @@
                 <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Tutorials
                 <span class="caret" ></span></button>
                 <ul class="dropdown-menu" >
-                  <li><a href="#"><span>Tutorial 1</span></a></li>
+                  <li><a href="{% url 'educational_tool:tutorial' %}"><span>Tutorial 1</span></a></li>
                   <li><a href="#"><span> Tutorial 2</span></a></li>
                   <li><a href="#"><span>Tutorial 3</span></a></li>
                 </ul>
@@ -142,7 +145,7 @@
 
 	</main>
 
-  <div class="buttonlink">
+  <!-- <div class="buttonlink">
     <script>
       function playVideo() {
           var videoId = document.getElementById("menu").value;
@@ -151,7 +154,7 @@
       }
       document.getElementById("menu").onchange = playVideo;
   </script>
-  </div>
+  </div> -->
 
 	<footer>
 		<p>&copy; 2023 CodingJutsu  </p>
