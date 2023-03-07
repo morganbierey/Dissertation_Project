@@ -37,8 +37,15 @@ class exercise(models.Model):
     title = models.CharField(max_length=128, unique=True)
     problem = models.CharField(max_length=5000, unique=True)
 
+    def save(self, *args, **kwargs):
+        self.id = self.id
+        super(exercise, self).save(*args, **kwargs)
+
     class Meta:
         verbose_name_plural = 'exercises'
+    
+    def __str__(self):
+        return self.title
 
 class tutorials(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -89,6 +96,18 @@ class video(models.Model):
         return self.title
 
 
+class topic(models.Model):
+    id = models.IntegerField(unique=True, primary_key=True)
+    title = models.CharField(max_length=128, unique=True)
+    content = models.TextField(max_length=5000, unique=True)
 
+    class Meta:
+        verbose_name_plural = 'topics'
 
+    def save(self, *args, **kwargs):
+        self.content = self.content
+        super(topic, self).save(*args, **kwargs)
+    
 
+    def __str__(self):
+        return self.title
