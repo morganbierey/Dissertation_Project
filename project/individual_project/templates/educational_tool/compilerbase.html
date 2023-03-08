@@ -70,7 +70,7 @@
 
   
 
-    <form action="{% url 'runcode' %}" method="post">
+    <form action="/educational_tool/compilerbase/{{ exercises.id }}/" method="post">
       <!--"/educational_tool/runcode" or original = "/runcode"-->
       {% csrf_token %}
       <div class="form-group" style="margin-left: 50px; margin-right: 50px">

@@ -35,9 +35,40 @@ def pycompiler(request):
     return render(request, 'educational_tool/pycompiler.html') 
 
 def compilerbase(request,p_id):
+    context_dict = {}
+    if request.method == "POST":
+      codeareadata = request.POST['codearea']
+    try:
+      #save original standard output reference
+
+      original_stdout = sys.stdout
+      sys.stdout = open('file.txt','w') # change standard ouput to the file we created
+
+      #execute code
+      exec(codeareadata) #example print("hello")
+
+      sys.stdout = original_stdout # reset original standard output to its orignial value 
+
+      # reads output from file and save in outut variable
+      output = open('file.txt','r').read()
+
+      context_dict['code'] = codeareadata 
+      context_dict['output'] = output
+
+    except Exception as e:
+      #else return error
+      output = open('file.txt','r').read()
+      sys.stdout = original_stdout
+      output = e
     # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
     context_dict = {}
     context_dict['exercises'] = exercise.objects.filter(id=p_id).values().first()
+    try:
+      context_dict['code'] = codeareadata 
+      context_dict['output'] = output
+    except Exception as e:
+      print(context_dict)
+
 
     print(context_dict)
 
