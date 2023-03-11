@@ -7,11 +7,12 @@
 
 
 {% block heading_block %}
-{{ topics.title }} 
+{{ topic.title }} 
 {% endblock %}
 
 {% block body_block %}
-		<div style="text-align: center;">
-		{{ topics.content }}  
+		<div style="text-align: left; margin-left: 5%; margin-right: 5%;">
+		<!-- {{ topics.content }}   -->
+		{{ topic.content|linebreaksbr }}
 		</div> 
 {% endblock %}
