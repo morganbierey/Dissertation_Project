@@ -3,6 +3,7 @@
 {% load staticfiles %}
 <html>
 	<head>
+    {% block head %}
 		<link rel="stylesheet" type="text/css" href="style.css">
 
         <!-- <meta charset="UTF-8" /> -->
@@ -27,6 +28,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="{% static 'codejutsu/css/style.css' %}">
+  {% endblock %}
 
 </head>
 <body>
@@ -47,62 +49,75 @@
 
 	<div>
 		{% block nav_block %}
-	<nav>
-		<ul>
-			<li><a href="/educational_tool">Home</a></li>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Categories
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#"><span>HTML</span></a></li>
-                  <li><a href="#"><span>CSS</span></a></li>
-                  <li><a href="#"><span>JavaScript</span></a></li>
-                </ul>
-            </div>
-            <div class="buttonlink">
-                <a class="btn btn-primary btncolour" href="{% url 'educational_tool:about' %}" role="button">About</a>
-            </div>
-            <div class="dropdown"> 
-                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Tutorials
+		<nav>
+      <ul>
+        <li><a href="/educational_tool">Home</a></li>
+              <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown"> Topics
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    {% for top in topics %}
+                    <!-- <li>{{ vid.title }}</li> -->
+                     <li><a href="/educational_tool/topic/{{ top.id }}/">{{ top.title }}</a></li>
+                    {% endfor %} 
+                  </ul>
+              </div>
+              <div class="buttonlink">
+                  <a class="btn btn-primary btncolour" href="{% url 'educational_tool:about' %}" role="button">About</a>
+              </div>
+              <div class="dropdown"> 
+                  <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Tutorials
+                  <span class="caret" ></span></button>
+                  <ul class="dropdown-menu" >
+                    <li><a href="{% url 'educational_tool:tutorial' %}"><span>Tutorial 1</span></a></li>
+                    <li><a href="#"><span> Tutorial 2</span></a></li>
+                    <li><a href="#"><span>Tutorial 3</span></a></li>
+                  </ul>
+              </div>
+  
+              <div class="dropdown"> 
+                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Videos
                 <span class="caret" ></span></button>
                 <ul class="dropdown-menu" >
-                  <li><a href="#"><span>Tutorial 1</span></a></li>
-                  <li><a href="#"><span> Tutorial 2</span></a></li>
-                  <li><a href="#"><span>Tutorial 3</span></a></li>
+                  {% for vid in videos %}
+                    <!-- <li>{{ vid.title }}</li> -->
+                    <li><a href="/educational_tool/video/{{ vid.url }}/">{{ vid.title }}</a></li>
+                  {% endfor %}                
                 </ul>
             </div>
-            
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Excercises
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#"><span>Excercise 1</span></a></li>
-                  <li><a href="#"><span>Excercise 2</span></a></li>
-                  <li><a href="#"><span>Excercise 3</span></a></li>
+  
+            </select>
+              
+              <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Excercises
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    {% for ex in excercises %}
+                      <li><a href="/educational_tool/compilerbase/{{ ex.id }}/">{{ ex.title }}</a></li>
+                    {% endfor %}                
                 </ul>
-            </div>
-
-            <div class="dropdown"> 
-              <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Videos
-              <span class="caret" ></span></button>
-              <ul class="dropdown-menu" >
-                {% for vid in videos %}
-                  <!-- <li>{{ vid.title }}</li> -->
-                  <li><a href="/educational_tool/video/{{ vid.url }}/">{{ vid.title }}</a></li>
-                {% endfor %}                
-              </ul>
-          </div>
-
-            <div class="buttonlink">
-                <a class="btn btn-primary btncolour" href="{% url 'educational_tool:pycompiler' %}" role="button btncolour">Testcode</a>
-            </div>
-
-			<!-- <li><a href="#">Dashboard 1</a></li>
-			<li><a href="#">Dashboard 2</a></li>
-			<li><a href="#">Dashboard 3</a></li>
-			<li><a href="#">Dashboard 4</a></li> -->
-		</ul>
-	</nav>
+                  
+              </div>
+  
+              <div class="buttonlink">
+                  <a class="btn btn-primary btncolour" href="{% url 'educational_tool:pycompiler' %}" role="button btncolour">Testcode</a>
+              </div>
+  
+              <div class="buttonlink">
+                  <a class="btn btn-primary btncolour" href="{% url 'educational_tool:login' %}" role="button">Login</a>
+              </div>
+                
+              <div class="buttonlink">
+                    <a class="btn btn-primary btncolour" href="{% url 'educational_tool:register' %}" role="button btncolour">SignUp</a>
+              </div>
+            </ul>
+  
+        <!-- <li><a href="#">Dashboard 1</a></li>
+        <li><a href="#">Dashboard 2</a></li>
+        <li><a href="#">Dashboard 3</a></li>
+        <li><a href="#">Dashboard 4</a></li> -->
+      </ul>
+    </nav>
 	{% endblock %}
 	</div>
 
