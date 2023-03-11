@@ -15,6 +15,7 @@ path('video/<v_id>/',views.show_video, name='show_video'),
 path('compilerbase/<p_id>/', views.compilerbase, name='compilerbase'),
 path('tutorial/', views.tutorial, name='tutorial'),
 path('topic/<t_id>/', views.show_topic, name='show_topic'),
+path('base/', views.base, name='base'),
 
 
 # path('runcode', views.runcode, name='runcode'),
