@@ -1,12 +1,7 @@
-<!DOCTYPE html>
+{% extends 'educational_tool/base.html' %}
 {% load staticfiles %}
-<html>
-<head>
-	<!-- <link rel="stylesheet" type="text/css" href="style.css">
 
-    <link rel="stylesheet2" href="test.js"> -->
-    
-    <!-- Latest compiled and minified CSS -->
+{% block head %}	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -20,113 +15,22 @@
 
   <link rel="stylesheet" type="text/css" href="{% static 'codejutsu/css/style.css' %}">
 
-</head>
+{% endblock %}
+
 <body>
   <div class="wrapper">
-	<header>
-        <title>Coding Jutsu</title>
-        <h1>Coding Jutsu</h1>
-	</header>
+        {% block header_block %}
+        CodingJutsu
+		  {% endblock %}
+	
 
-	<nav>
-		<ul>
-			<li><a href="/educational_tool">Home</a></li>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown"> Topics
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  {% for t in topics %}
-                  <!-- <li>{{ vid.title }}</li> -->
-                  <li><a href="/educational_tool/topic/{{ t.id }}/">{{ t.title }}</a></li>
-                  {% endfor %} 
-                  <!-- <li><a href="#"><span>HTML</span></a></li>
-                  <li><a href="#"><span>CSS</span></a></li>
-                  <li><a href="#"><span>JavaScript</span></a></li> -->
-                </ul>
-            </div>
-            <div class="buttonlink">
-                <a class="btn btn-primary btncolour" href="{% url 'educational_tool:about' %}" role="button">About</a>
-            </div>
-            <div class="dropdown"> 
-                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Tutorials
-                <span class="caret" ></span></button>
-                <ul class="dropdown-menu" >
-                  <li><a href="{% url 'educational_tool:tutorial' %}"><span>Tutorial 1</span></a></li>
-                  <li><a href="#"><span> Tutorial 2</span></a></li>
-                  <li><a href="#"><span>Tutorial 3</span></a></li>
-                </ul>
-            </div>
 
-            <div class="dropdown"> 
-              <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Videos
-              <span class="caret" ></span></button>
-              <ul class="dropdown-menu" >
-                {% for vid in videos %}
-                  <!-- <li>{{ vid.title }}</li> -->
-                  <li><a href="/educational_tool/video/{{ vid.url }}/">{{ vid.title }}</a></li>
-                {% endfor %}                
-              </ul>
-          </div>
-
-          <!-- <iframe id="embed-video"></iframe>
-
-          <script>
-            function openytlink(option) {
-              var link = option.link;
-              const params = new Proxy(new URLSearchParams(link), {
-                get: (searchParams, prop) => searchParams.get(prop),
-              });
-              let value = params.v;
-              document.getElementById('embed-video').src = 'https://www.youtube.com/embed/' + value + '?rel=0'
-            }
-          </script> -->
-          
-          <!-- <label>Videos</label>
-          <select id="comboA" onchange="openytlink(this)">
-            {% for vid in videos %}
-              <option link="{{ vid.link }}">{{ vid.name }}</option>
-            {% endfor %} -->
-            <!-- <option value="">Select combo</option>
-            <option value="Value1">Text1</option>
-            <option value="Value2">Text2</option>
-            <option value="Value3">Text3</option> -->
-          </select>
-            
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Excercises
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  {% for ex in excercises %}
-                  <li><a href="/educational_tool/compilerbase/{{ ex.id }}/">{{ ex.title }}</a></li>
-                  {% endfor %}                
-              </ul>
-                
-            </div>
-
-            <div class="buttonlink">
-                <a class="btn btn-primary btncolour" href="{% url 'educational_tool:pycompiler' %}" role="button btncolour">Testcode</a>
-            </div>
-
-            <div class="buttonlink">
-                <a class="btn btn-primary btncolour" href="{% url 'educational_tool:login' %}" role="button">Login</a>
-            </div>
-              
-            <div class="buttonlink">
-                  <a class="btn btn-primary btncolour" href="{% url 'educational_tool:register' %}" role="button btncolour">SignUp</a>
-            </div>
-          </ul>
-
-			<!-- <li><a href="#">Dashboard 1</a></li>
-			<li><a href="#">Dashboard 2</a></li>
-			<li><a href="#">Dashboard 3</a></li>
-			<li><a href="#">Dashboard 4</a></li> -->
-		</ul>
-	</nav>
-
-	<main>
 		<!-- Add your content here -->
-    <div class="container">
-      <br>
+
+
+  {% block body_block %}
+  <main>
+		<div class="container">
       <h1>Welcome to Coding Jutsu!</h1>
       <p class="description">
         Our website is the ultimate learning resource for pre-university students who want to learn how to code! We've curated a collection of cognitive learning resources from across the internet and brought them together in one convenient place to help you master the concepts of programming and coding in Python.
@@ -141,9 +45,13 @@
     <div style="display: flex; justify-content: center;">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/Dv7gLpW91DM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
+  </main>
+	
 
-
-	</main>
+  {% block footer_block %}
+		<p>&copy; 2023 CodingJutsu  </p>
+	{% endblock %}
+    
 
   <!-- <div class="buttonlink">
     <script>
@@ -156,11 +64,11 @@
   </script>
   </div> -->
 
-	<footer>
+	<!-- <footer>
 		<p>&copy; 2023 CodingJutsu  </p>
-	</footer>
+	</footer> -->
 
 	<script src="script.js"></script>
 </div>
 </body>
-</html>
+{% endblock %}
