@@ -99,7 +99,7 @@ class video(models.Model):
 class topic(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
     title = models.CharField(max_length=128, unique=True)
-    content = models.TextField(max_length=5000, unique=True)
+    content = models.CharField(max_length=5000, unique=True)
 
     class Meta:
         verbose_name_plural = 'topics'
