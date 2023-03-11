@@ -24,7 +24,21 @@ def populate():
 
         topic_pages = [
         {'id':'1','title': ' Loops',
-        'content':'In programming, a loop is a way to repeat a set of instructions multiple times. There are two main types of loops in Python: for loops and while loops.'},
+        'content':"""Imagine you have a big box of crayons with 100 different colors, and you want to count how many colors there are. You could start at the first crayon and count  \"1 \", and then move on to the second crayon and count  \"2 \", and so on until you \'ve counted all 100 crayons. This would take a lot of time and effort! 
+        Instead, you could use a loop, which is like a special kind of counting machine. You tell the computer to start at the first crayon and count up to 100, and then it does all the counting for you automatically. In the same way, when we \'re writing computer programs, we might have to do something over and over again, like adding up a bunch of numbers or checking a bunch of items in a list.
+
+        Instead of doing the same thing manually each time, we can use loops to make the computer do it for us automatically. Loops help us save time, reduce errors, and make our programs more efficient 
+        
+        In programming, a loop is a way to repeat a set of instructions multiple times. There are two main types of loops in Python: for loops and while loops.
+        
+        A "for loop" and a "while loop" are both ways to make the computer do something over and over again, but they work in slightly different ways.
+
+        A "for loop" is like a countdown. Imagine you're counting down from 10 to 1. You start at 10, count down to 9, then 8, then 7, and so on, until you get to 1. In a for loop, we usually know how many times we want to do something, and we count down until we're done.
+
+        A "while loop" is more like a game of tag. Imagine you're playing tag with your friends, and you keep running until someone tags you. You don't know how long you'll be running for, but you keep going until someone tags you. In a while loop, we keep doing something until a certain condition is met.
+
+        So, the main difference is that a "for loop" is used when we know how many times we want to do something, and a "while loop" is used when we don't know how many times we want to do something, but we have a condition that needs to be met before we stop.
+        """},
         {'id':'2','title':'Lists ',
         'content':'Y8Tko2YC5hA'},
         {'id':'3','title':'Syntax',
@@ -207,6 +221,7 @@ def add_excercise(id,title, problem):
 
 def add_top(id,title, content):
        t  = topic.objects.get_or_create(id=id,title=title,content=content)[0]
+       print(t)
        t.save()
        return t
 
