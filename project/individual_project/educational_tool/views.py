@@ -19,16 +19,13 @@ def index(request):
     # Retrieve the top 5 only -- or all if less than 5.
     # Place the list in our context_dict dictionary (with our boldmessage!)
     # that will be passed to the template engine.
-    category_list = Category.objects.order_by('-likes')[:5]
-    context_dict = {}
-    context_dict['boldmessage'] = 'Why Learn Code?'
-    context_dict['categories'] = category_list
-    context_dict['videos'] = video.objects.all()
-    context_dict['excercises'] = exercise.objects.all()
-    context_dict['topics'] = topic.objects.all()
 
     # Render the response and send it back!
-    return render(request, 'educational_tool/index.html', context=context_dict)
+    return render(request, 'educational_tool/index.html')
+
+def base(request):
+    
+    return render(request, 'educational_tool/base.html')
 
 def pycompiler(request):
     # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
@@ -148,7 +145,7 @@ def show_video(request, v_id):
 def show_topic(request, t_id):
     
     context_dict = {}
-    context_dict['topics'] = topic.objects.get(id=t_id)
+    context_dict['topic'] = topic.objects.get(id=t_id)
     return render(request, 'educational_tool/topic.html', context=context_dict)
 
 
