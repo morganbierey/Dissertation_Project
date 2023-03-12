@@ -47,16 +47,30 @@ class exercise(models.Model):
     def __str__(self):
         return self.title
 
-class tutorials(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    paragraph = models.CharField(max_length=1000, unique=True)
-    expected_ouput = models.CharField(max_length=128, unique=True)
-    question =  models.CharField(max_length=128, unique=True)
-    correct_answer = models.CharField(max_length=128, unique=True) #strign based question
-    user_answer = models.CharField(max_length=128, unique=True) #string based questions
-    coding_answer = models.CharField(max_length=128, unique=True) # the expected output of code 
-    user_coding_answer = models.CharField(max_length=128, unique=True) # might not need,, user can compare their own answe to expected answer
-    # correct_answer will be compared to the input box - user_answer 
+class tutorial(models.Model):
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    # paragraph = models.CharField(max_length=1000, unique=True)
+    # expected_ouput = models.CharField(max_length=128, unique=True)
+    # question =  models.CharField(max_length=128, unique=True)
+    # correct_answer = models.CharField(max_length=128, unique=True) #strign based question
+    # user_answer = models.CharField(max_length=128, unique=True) #string based questions
+    # coding_answer = models.CharField(max_length=128, unique=True) # the expected output of code 
+    # user_coding_answer = models.CharField(max_length=128, unique=True) # might not need,, user can compare their own answe to expected answer
+    # correct_answer will be compared to the input box - user_answer
+    id = models.IntegerField(unique=True, primary_key=True)
+    title = models.CharField(max_length=128, unique=True)
+    problem = models.CharField(max_length=5000, unique=True)
+    answer = models.CharField(max_length=5000, unique=True)
+
+    def save(self, *args, **kwargs):
+        self.id = self.id
+        super(tutorial, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = 'tutorials'
+    
+    def __str__(self):
+        return self.title
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
