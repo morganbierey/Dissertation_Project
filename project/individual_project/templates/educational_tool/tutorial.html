@@ -1,18 +1,137 @@
-{% extends 'educational_tool/base.html' %}
-{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-{% block title_block %}
-    Tutorial Page
-{% endblock %}
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
-{% block heading_block %}
-    Tutorial Page
-{% endblock %}
+    <title>
+      {% block title_block %} 
+      {{ tutorial.title}}
+      {% endblock %}
+    </title>
 
-{% block body_block %}
+    <!-- <div class="custom-header-block">
+		{% block header_block %}
+        CodingJutsu
+		{% endblock %}
+</div> -->
+  </head>
+  <body style="font-family: Verdana">
 
+    <!-- {% block heading_block %}
+    {{ excercises.title }}
+    {% endblock %} -->
 
-   
-   
-{% endblock %}
+    <br />
+    <h1 style="text-align: center">python compiler</h1>
+    <h5 style="text-align: center">execute your code here !</h5>
+
+    <li><a href="{% url 'educational_tool:index' %}">Home</a></li>
+
+    <div class="form-group" style="margin-left: 50px; margin-right: 50px">
+        <small id="excercisehelp" class="form-text text-muted">The excercise</small>
+    <textarea
+            type="text"
+            class="form-control"
+            id="exercise"
+            name="exercise"
+            rows="6"
+            disabled
+        >{{ tutorial.problem }}</textarea>
+      </div>
+
+    <div class="form-group" style="margin-left: 50px; margin-right: 50px">
+        <small id="answerhelp" class="form-text text-muted">solution to excercise</small>
+      <textarea
+      type="text"
+      class="form-control"
+      id="exercise"
+      name="exercise"
+      rows="6"
+      disabled
+  > Solution to excercise: 
+   {{ tutorial.answer}}</textarea>
+    </div>
+      
+    
+
+  
+
+    <form action="/educational_tool/tutorial/{{ tutorial.id }}/" method="post">
+      <!--"/educational_tool/runcode" or original = "/runcode"-->
+      {% csrf_token %}
+      <div class="form-group" style="margin-left: 50px; margin-right: 50px">
+        <!-- enter excercise comments  -->
+        <!-- <small id="CodeAreaHelp" class="form-text text-muted">list comprehension <br> 
+            You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
+            You may assume the two numbers do not contain any leading zero, except the number 0 itself. </small> -->
+
+        
+     
+
+        <!-- enter excercise comments  -->
+        <label for="codearea">Area To Run Solution</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="codearea"
+          name="codearea"
+          rows="10"
+          onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0,s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"
+        >
+{{ tutorial.answer}}</textarea
+        >
+        <small id="CodeAreaHelp" class="form-text text-muted"
+          >enter your code above, click submit button to execute</small
+        >
+      </div>
+
+      <div class="form-group" style="margin-left: 50px; margin-right: 50px">
+        <label for="output">Output</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="output"
+          name="output"
+          rows="6"
+          disabled
+        >
+{{output}}</textarea
+        >
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-left: 50px">
+        Submit
+      </button>
+    </form>
+  </body>
+</html>
