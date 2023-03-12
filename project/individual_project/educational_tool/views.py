@@ -5,6 +5,7 @@ from educational_tool.models import Page
 from educational_tool.models import video
 from educational_tool.models import exercise
 from educational_tool.models import topic
+from educational_tool.models import tutorial
 from educational_tool.forms import UserForm, UserProfileForm
 import sys
 from django.contrib.auth import authenticate, login
@@ -59,7 +60,7 @@ def compilerbase(request,p_id):
       output = e
     # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
     context_dict = {}
-    context_dict['exercises'] = exercise.objects.filter(id=p_id).values().first()
+    context_dict['exercises'] = exercise.objects
     try:
       context_dict['code'] = codeareadata 
       context_dict['output'] = output
@@ -104,9 +105,47 @@ def about(request):
     context_dict = {'boldmessage': 'This tutorial has been put together by Morgan Bierey'}
     return render(request, 'educational_tool/about.html', context=context_dict)
 
-def tutorial(request):
+def show_tutorial(request,tut_id):
+    context_dict = {}
+    if request.method == "POST":
+      codeareadata = request.POST['codearea']
+    try:
+      #save original standard output reference
+
+      original_stdout = sys.stdout
+      sys.stdout = open('file.txt','w') # change standard ouput to the file we created
+
+      #execute code
+      exec(codeareadata) #example print("hello")
+
+      sys.stdout = original_stdout # reset original standard output to its orignial value 
+
+      # reads output from file and save in outut variable
+      output = open('file.txt','r').read()
+
+      context_dict['code'] = codeareadata 
+      context_dict['output'] = output
+
+    except Exception as e:
+      #else return error
+      output = open('file.txt','r').read()
+      sys.stdout = original_stdout
+      output = e
+    # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
+    context_dict = {}
+    context_dict['tutorial'] = tutorial.objects.get(id=tut_id)
+    try:
+      context_dict['code'] = codeareadata 
+      context_dict['output'] = output
+    except Exception as e:
+      print(context_dict)
+
+
+    print(context_dict)
+
     
-    return render(request, 'educational_tool/tutorial.html')
+    
+    return render(request, 'educational_tool/tutorial.html',context=context_dict)
 
 
 def show_category(request, category_name_slug):
