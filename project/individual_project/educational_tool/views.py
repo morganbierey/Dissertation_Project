@@ -60,7 +60,7 @@ def compilerbase(request,p_id):
       output = e
     # context_dict = {'boldmessage': 'Test your code here using the compiler provided '}
     context_dict = {}
-    context_dict['exercises'] = exercise.objects
+    context_dict['exercises'] = exercise.objects.filter(id=p_id).values().first()
     try:
       context_dict['code'] = codeareadata 
       context_dict['output'] = output
