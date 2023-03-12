@@ -69,9 +69,11 @@
                   <button class="btn btn-primary dropdown-toggle btncolour" type="button" data-toggle="dropdown">Tutorials
                   <span class="caret" ></span></button>
                   <ul class="dropdown-menu" >
-                    <li><a href="{% url 'educational_tool:tutorial' %}"><span>Tutorial 1</span></a></li>
-                    <li><a href="#"><span> Tutorial 2</span></a></li>
-                    <li><a href="#"><span>Tutorial 3</span></a></li>
+                    {% for tut in tutorials %}
+                    <!-- <li>{{ vid.title }}</li> -->
+                     <li><a href="/educational_tool/tutorial/{{ tut.id }}/">{{ tut.title }}</a></li>
+                    {% endfor %} 
+                    
                   </ul>
               </div>
   
