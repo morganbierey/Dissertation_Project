@@ -4,7 +4,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 
 import django
 django.setup()
-from educational_tool.models import Category, Page, video, exercise , topic
+from educational_tool.models import Category, Page, video, exercise , topic, tutorial
 
 def populate():
      # First, we will create lists of dictionaries containing the pages
@@ -14,13 +14,13 @@ def populate():
      # # through each data structure, and add the data to our models.
 
 
-        # tutorial_pages = [
-        # {'id':'1','title': 'Tutorial 1',
-        # 'url':'Dv7gLpW91DM'},
-        # {'id':'2','title':'Tutorial 2 ',
-        # 'url':'Y8Tko2YC5hA'},
-        # {'id':'3','title':'Tutorial 3',
-        #  'url':'0NO3MJkxm2g'}]
+        tutorial_pages = [
+        {'id':'1','title':'Tutorial1',
+        'problem':'Dv7gLpW91DM','answer':'abaa'},
+        {'id':'2','title':'Tutorial2',
+        'problem':'Y8Tko2YC5hA','answer':'basas'},
+        {'id':'3','title':'Tutorial3',
+         'problem':'0NO3MJkxm2g','answer':'casas'}]
 
         topic_pages = [
         {'id':'1','title': ' Loops',
@@ -94,7 +94,7 @@ def populate():
         #  {'id':'3','title':'Scope',
         #  'url':'0NO3MJkxm2g'}
 
-        excercise_pages = [{'id':'1','title': 'Intro to why you should code',
+        excercise_pages = [{'id':'1','title': 'Firstname & lastname',
         'problem': """You are given the firstname and lastname of a person on two different lines. Your task is to read them and print the following:
             Hello firstname lastname! You just delved into python.
 
@@ -193,6 +193,14 @@ def populate():
                title = topic.get('title')
                content = topic.get('content')
                p = add_top(id,title,content)
+        
+        for tut in tutorial_pages:
+               id = tut.get('id')
+               title = tut.get('title')
+               problem = tut.get('problem')
+               answer = tut.get('answer')
+               p = add_tut(id,title,problem,answer)
+               
 
 
 def add_page(cat, title, url, views=0):
@@ -224,6 +232,15 @@ def add_top(id,title, content):
        print(t)
        t.save()
        return t
+
+def add_tut(id,title,problem,answer):
+        tu= tutorial.objects.get_or_create(id=id, title=title, problem=problem, answer=answer)[0]
+        print(tu)
+        tu.save()
+        return tu
+       
+       
+
 
 
 
