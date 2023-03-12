@@ -1,5 +1,5 @@
 from django.contrib import admin
-from educational_tool.models import Category, Page, project, video, UserProfile, exercise, tutorials , topic
+from educational_tool.models import Category, Page, project, video, UserProfile, exercise, tutorial , topic
 
 #second from.. added in ex5.6
 # Register your models here.
@@ -23,6 +23,9 @@ class ExcerciseAdmin(admin.ModelAdmin):
 class TopicAdmin(admin.ModelAdmin):
     list_display = ('id','title','content')
 
+class TutorialAdmin(admin.ModelAdmin):
+    list_display = ('id','title','problem','answer')
+
 
 #below changed chapter 5 ex , added PageAdmin
 admin.site.register(Page,PageAdmin)
@@ -32,6 +35,7 @@ admin.site.register(Category, CategoryAdmin)
 
 admin.site.register(exercise,ExcerciseAdmin)
 
+admin.site.register(tutorial,TutorialAdmin)
 
 admin.site.register(topic,TopicAdmin)
 
@@ -39,5 +43,5 @@ admin.site.register(topic,TopicAdmin)
 admin.site.register(project)
 admin.site.register(video,VideoAdmin)
 admin.site.register(UserProfile)
-admin.site.register(tutorials)
+
 

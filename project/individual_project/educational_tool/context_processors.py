@@ -1,4 +1,4 @@
-from educational_tool.models import video, exercise,topic
+from educational_tool.models import video, exercise,topic, tutorial
 
 def extras(request):
     context_dict = {}
@@ -10,5 +10,6 @@ def extras(request):
     videos = video.objects.all()
     exercises = exercise.objects.all()
     topics = topic.objects.all()
+    tutorials = tutorial.objects.all()
 
-    return{'videos': videos,'excercises': exercises,'topics': topics}
+    return{'videos': videos,'excercises': exercises,'topics': topics, 'tutorials':tutorials}
