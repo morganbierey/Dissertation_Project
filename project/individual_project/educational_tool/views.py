@@ -8,9 +8,14 @@ from educational_tool.models import topic
 from educational_tool.models import tutorial
 from educational_tool.forms import UserForm, UserProfileForm
 import sys
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+
+
+
+
 
 
 # Create your views here.
@@ -286,6 +291,18 @@ def user_login(request):
       # No context variables to pass to the template system, hence the
       # blank dictionary object...
     return render(request, 'educational_tool/login.html')
+  
+
+# Use the login_required() decorator to ensure only those logged in can
+# access the view.
+@login_required
+def user_logout(request):
+  # Since we know the user is logged in, we can now just log them out.
+  logout(request)
+  # Take the user back to the homepage.
+  return redirect(reverse('educational_tool:index'))
+  
+
 
 
 

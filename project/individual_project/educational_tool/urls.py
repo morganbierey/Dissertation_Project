@@ -16,6 +16,7 @@ path('compilerbase/<p_id>/', views.compilerbase, name='compilerbase'),
 path('tutorial/<tut_id>/', views.show_tutorial, name='tutorial'),
 path('topic/<t_id>/', views.show_topic, name='show_topic'),
 path('base/', views.base, name='base'),
+path('logout/', views.user_logout, name='logout')
 
 
 # path('runcode', views.runcode, name='runcode'),

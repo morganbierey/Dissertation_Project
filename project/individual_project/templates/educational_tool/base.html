@@ -105,9 +105,15 @@
                   <a class="btn btn-primary btncolour" href="{% url 'educational_tool:pycompiler' %}" role="button btncolour">Testcode</a>
               </div>
 
-              
-              
-            {% if not user.is_authenticated %}
+
+
+            {% if user.is_authenticated %}
+
+              <div class="buttonlink">
+                <a class="btn btn-primary btncolour" href="{% url 'educational_tool:logout' %}">Logout</a>
+              </div>
+
+            {% else %}
               <div class="buttonlink">
                   <a class="btn btn-primary btncolour" href="{% url 'educational_tool:login' %}" role="button">Login</a>
               </div>
@@ -116,7 +122,7 @@
                     <a class="btn btn-primary btncolour" href="{% url 'educational_tool:register' %}" role="button btncolour">SignUp</a>
 
               </div>
-              {% endif %}
+            {% endif %}
             </ul>
   
         <!-- <li><a href="#">Dashboard 1</a></li>
