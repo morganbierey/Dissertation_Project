@@ -99,19 +99,24 @@
                     {% endfor %}                
                 </ul>
                   
-              </div>
-  
+              </div>      
+              
               <div class="buttonlink">
                   <a class="btn btn-primary btncolour" href="{% url 'educational_tool:pycompiler' %}" role="button btncolour">Testcode</a>
               </div>
-  
+
+              
+              
+            {% if not user.is_authenticated %}
               <div class="buttonlink">
                   <a class="btn btn-primary btncolour" href="{% url 'educational_tool:login' %}" role="button">Login</a>
               </div>
                 
               <div class="buttonlink">
                     <a class="btn btn-primary btncolour" href="{% url 'educational_tool:register' %}" role="button btncolour">SignUp</a>
+
               </div>
+              {% endif %}
             </ul>
   
         <!-- <li><a href="#">Dashboard 1</a></li>
