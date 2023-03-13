@@ -301,6 +301,21 @@ def user_logout(request):
   logout(request)
   # Take the user back to the homepage.
   return redirect(reverse('educational_tool:index'))
+
+@login_required
+def view_profile(request):
+    user = request.user
+    user_profile = user.userprofile
+
+    context = {
+        'user_profile': user_profile,
+        'user_image': user_profile.picture,
+        'user_email': user.email,
+        'user_username': user.username,
+        'user_profile_picture': user_profile.picture,
+    }
+
+    return render(request, 'educational_tool/profile.html', context)
   
 
 

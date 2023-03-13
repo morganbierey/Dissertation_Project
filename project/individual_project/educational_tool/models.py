@@ -74,7 +74,7 @@ class tutorial(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    picture = models.ImageField(upload_to ='profile_images', blank=True)
+    picture = models.ImageField(upload_to ='profile_images', default='profile_images/default_profile.png', blank=True)
     author = models.BooleanField(default=False)
     is_teacher = models.BooleanField(default=False)
 

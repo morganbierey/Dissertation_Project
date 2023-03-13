@@ -1,0 +1,24 @@
+{% extends 'educational_tool/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	User Profile
+{% endblock %}
+
+{% block body_block %}
+<h1>Welcome, {{ user_username }}!</h1>
+
+<div style="display: flex; justify-content: center; display: block;">
+
+<img src="{{ user_profile_picture.url }}" alt="{{ user_username }}'s profile picture">
+
+<p>Email: {{ user_email }}</p>
+
+<div class="buttonlink">
+    <a class="btn btn-primary btncolour" href="{% url 'educational_tool:logout' %}">Logout</a>
+</div>
+
+</div>
+
+ 	
+{% endblock %}

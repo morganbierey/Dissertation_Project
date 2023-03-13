@@ -8,6 +8,11 @@
 
 
 {% block body_block %}
+{% if user.is_authenticated %}
+    <strong>Log in successful!</strong>
+    <a href="{% url 'index' %}">Return to Homepage</a><br />
+
+{% else %}
     <h1>Login to CodeJutsu</h1>
     <form id="login_form" method="post" action="{% url 'educational_tool:login' %}">
         {% csrf_token %}
@@ -17,4 +22,5 @@
         <br />
         <input type="submit" value="submit" />
     </form>
+{% endif %}
 {% endblock %}
