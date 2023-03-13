@@ -23,10 +23,108 @@ def populate():
                 print(i)
     
     """},
-        {'id':'2','title':'Tutorial2',
-        'problem':'Y8Tko2YC5hA','answer':'basas'},
-        {'id':'3','title':'Tutorial3',
-         'problem':'0NO3MJkxm2g','answer':'casas'}]
+        {'id':'2','title':'Comments Tutorial',
+        'problem':""" write a program and include comments using a '#' sign.
+          Note anything after the # sign will not be registered on the output. 
+          
+          Task : print('hello world') and have a comment next to it saying 'this prints hello world'
+          to check your implementation look at the comments tutorial
+        
+        """,'answer':"""print('hello world')#this prints hello world"""},
+        {'id':'3','title':'Loops 2 Tutorial',
+         'problem':"""
+         Write a program that uses a for loop to print all the even numbers between 1 and 20.
+
+         Hint/help : use for loop
+                use an if statement
+                and a print statement to print output
+         """,
+         'answer':
+         """for i in range(1,21):
+                if i % 2 == 0:
+                        print(i)
+            #This program uses a for loop to iterate through the numbers 1 to 20, 
+            # and then uses an if statement to check if each number is even 
+            # (i.e., divisible by 2). If the number is even, it is printed to the console.
+         """},
+          {'id':'4','title':'Indexing Tutorial',
+         'problem':"""
+         Write a program that creates a list of 5 numbers and then prints the second and fourth numbers in the list.
+                
+         hint/ help : create a list variable
+                     use list indexing 
+                     remeber first element in the list
+                     use print statement to output  
+         """,
+        'answer':
+        """numList = [2, 4, 6, 8, 10]
+print(numList[1], numList[3])
+#This program creates a list of 5 numbers [2, 4, 6, 8, 10]
+# and then uses indexing to print the second and fourth numbers in the list (which are 4 and 8, respectively).
+        """},
+          {'id':'5','title':'Boolean Tutorial',
+         'problem':"""
+        create two variables num1 and num2, let num1 = 7 and num2 = 9 
+        Write a program that checks if the num1 is greater than the num2. If it is, the program should print "The first number is greater." If not, it should print "The second number is greater.
+         """,'answer':
+        """# This program checks if the integer value 5 is greater than the integer value 3. 
+# Since 5 is greater than 3, the if statement is true and the program prints the string 
+#"The first number is greater." to the console. 
+# If the if statement were false, 
+# the program would print the string "The second number is greater." to the console instead.
+
+# code is below this comment
+num1 = 5
+num2 = 3
+if num1 > num2:
+        print("The first number is greater.")
+else:
+        print("The second number is greater.")
+         """},
+          {'id':'6','title':' Casting Tutorial',
+         'problem':"""
+         Write a program that takes the string "10" and casts it to an integer, adds 5 to it, and then prints out the result.""",
+        'answer':"""numString = "10"
+numInt = int(numString)
+numPlusFive = numInt + 5
+print(numPlusFive)
+         """},
+          {'id':'7','title':'Variables & DataTypes Tutorial',
+         'problem':"""
+         Write a program that assigns your name and age to variables, and then prints out a message that says "Hello [name], you are [age] years old.
+         """,
+        'answer':"""name = "John"
+age = 17
+print("Hello " + name + ", you are " + str(age) + " years old.")
+         """},
+          {'id':'8','title':'Lists',
+         'problem':"""Write a program to create a list of your favorite fruits and print each fruit on a new line.""",
+        'answer':"""favorite_fruits = ["apple", "banana", "mango", "strawberry"]
+for fruit in favorite_fruits:
+        print(fruit)
+         """},
+          {'id':'9','title':'Variables Tutorial',
+         'problem':""" Task: Write a program to assign a value of 10 to a variable named "number" and print the value of the variable.""",
+'answer':"""number = 10
+print(number)
+
+         """},
+          {'id':'10','title':'If/Else & functions Tutorial ',
+         'problem':"""
+         Write a program to define a function that takes a number as an argument and prints "even" if the number is even, and "odd" if the number is odd. Code:
+         """,
+        'answer':"""def even_odd(num):
+        if num % 2 == 0:
+                print("even")
+        else:
+                print("odd")
+
+# Example usage:
+even_odd(7)  # Output: odd
+even_odd(10)  # Output: even
+         
+         """},
+         ]
 
         topic_pages = [
         {'id':'1','title': ' Loops',
@@ -625,7 +723,24 @@ def populate():
         {'id':'2','title':'What is python ',
         'url':'Y8Tko2YC5hA'},
         {'id':'3','title':'Syntax',
-         'url':'0NO3MJkxm2g'}]
+         'url':'AGnECmJFA9U'},
+         {'id':'4','title':'Loops',
+         'url':'wxds6MAtUQ0'},
+         {'id':'5','title':'Variables',
+         'url':'cQT33yu9pY8'},
+         {'id':'6','title':'lists',
+         'url':'ohCDWZgNIU0'},
+         {'id':'7','title':'Numbers and strings',
+         'url':'yuxD8OlI7Rc'},
+         {'id':'8','title':'Type Casting',
+         'url':'Qtq83lAoogM'},
+         {'id':'10','title':'Data Types',
+         'url':'afJ2CuFbHKo'},
+         {'id':'11','title':'Python cheat sheet',
+         'url':'A2NnIWCYnMQ'},
+         {'id':'12','title':'',
+         'url':'0NO3MJkxm2g'},
+       ]
         #  {'id':'4','title':'Comments',
         #  'url':''},
         #  {'id':'5','title':'Variables',
@@ -664,7 +779,10 @@ def populate():
         #  'url':'0NO3MJkxm2g'}
 
         excercise_pages = [{'id':'3','title':'comments',
-         'problem':""" write a program and include comments using a '#' sign anything after the # sign will not be registered on the output, print('hello world') and have a comment next to it saying 'this prints hello world'
+         'problem':""" write a program and include comments using a '#' sign.
+          Note anything after the # sign will not be registered on the output. 
+          
+          Task : print('hello world') and have a comment next to it saying 'this prints hello world'
           to check your implementation look at the comments tutorial
             """},
             {'id':'4','title': 'Firstname & lastname',
@@ -698,12 +816,45 @@ def populate():
             Explanation 0
 
             The input read by the program is stored as a string data type. A string is a collection of characters."""},
-        {'id':'2','title':'What is python ',
-        'problem':'Y8Tko2YC5hA'},
         {'id':'1','title':'loops',
          'problem':'Write a program that outputs numbers one to ten using a for loop. '} ,
-         {'id':'5','title':'Syntax',
-         'problem':'0NO3MJkxm2g'} ,]
+          {'id':'6','title':'Loops 2',
+         'problem':"""
+         Write a program that uses a for loop to print all the even numbers between 1 and 20.
+
+         Hint/help : use for loop
+                use an if statement
+                and a print statement to print output
+         """} ,
+          {'id':'7','title':'indexing',
+         'problem':"""Write a program that creates a list of 5 numbers and then prints the second and fourth numbers in the list.
+                
+         hint/ help : create a list variable
+                     use list indexing 
+                     remeber first element in the list
+                     use print statement to output  
+
+                
+         """} ,
+          {'id':'8','title':'Boolean',
+         'problem':"""
+         create two variables num1 and num2, let num1 = 7 and num2 = 9 
+         Write a program that checks if the num1 is greater than the num2. If it is, the program should print "The first number is greater." If not, it should print "The second number is greater.
+         """} ,
+          {'id':'9','title':'Casting ',
+         'problem':"""Write a program that takes the string called string1, where string1 = "10", casts string1 to an integer, add 5 to it, and then prints out the result."""} ,
+          {'id':'10','title':'Variables and datatypes ',
+         'problem':"""Write a program that assigns your name and age to variables, and then prints out a message that says "Hello [name], you are [age] years old."""} ,
+          {'id':'11','title':'Lists',
+         'problem':"""Write a program to create a list of your favorite fruits and print each fruit on a new line."""} ,
+          {'id':'12','title':'Variables ',
+         'problem':"""Task: Write a program to assign a value of 10 to a variable named "number" and print the value of the variable."""} ,
+          {'id':'13','title':'If/else and functions:',
+         'problem':"""
+         Write a program to define a function that takes a number as an argument and prints "even" if the number is even, and "odd" if the number is odd. Code:
+         """}      
+         
+         ]
 
 
         python_pages = [
