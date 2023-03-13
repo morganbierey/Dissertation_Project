@@ -31,7 +31,14 @@
   {% block body_block %}
   <main>
 		<div class="container">
-      <h1>Welcome to Coding Jutsu!</h1>
+
+       <div>{% if user.is_authenticated %}
+          <h1>Hi {{ user.username }}, Welcome to Coding Jutsu!</h1>
+              {% else %}
+              <h1>Welcome to Coding Jutsu!</h1>
+              {% endif %}
+          </div>
+      
       <p class="description">
         Our website is the ultimate learning resource for pre-university students who want to learn how to code! We've curated a collection of cognitive learning resources from across the internet and brought them together in one convenient place to help you master the concepts of programming and coding in Python.
       </p>
@@ -43,15 +50,10 @@
     <br>
 
     <div style="display: flex; justify-content: center;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Dv7gLpW91DM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe width="600" height="315" src="https://www.youtube.com/embed/Dv7gLpW91DM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </main>
 	
-
-  {% block footer_block %}
-		<p>&copy; 2023 CodingJutsu  </p>
-	{% endblock %}
-    
 
   <!-- <div class="buttonlink">
     <script>
@@ -72,3 +74,8 @@
 </div>
 </body>
 {% endblock %}
+
+{% block footer_block %}
+		<p>&copy; 2023 CodingJutsu  </p>
+{% endblock %}
+    
