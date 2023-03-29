@@ -13,7 +13,7 @@
     <a href="{% url 'index' %}">Return to Homepage</a><br />
 
 {% else %}
-    <h1>Login to CodeJutsu</h1>
+    <h1>Login to CodingJutsu</h1>
     <form id="login_form" method="post" action="{% url 'educational_tool:login' %}">
         {% csrf_token %}
         Username: <input type="text" name="username" value="" size="50" />
